@@ -34,9 +34,7 @@ c++;
 }
 if (c == m) {
 array[z++]=i;
-printf("Resouces can be allocated to Process:%d and available resources are: ", (i
-
-+ 1));
+printf("Resouces can be allocated to Process:%d and available resources are: ", (i+ 1));
 
 for (j = 0; j < m; j++) {
 printf("%d ", ava[j]);
