@@ -1,110 +1,90 @@
 #include<stdio.h>
-static int mark[20];
-int i, j, np, nr;
-
-
-int main()
+void main()
 {
-int alloc[10][10],request[10][10],avail[10],r[10],w[10];
-
-
-printf ("\nEnter the no of the process: ");
-scanf("%d",&np);
-printf ("\nEnter the no of resources: ");
-scanf("%d",&nr);
-for(i=0;i<nr; i++)
-{
-printf("\nTotal Amount of the Resource R % d: ",i+1);
-scanf("%d", &r[i]);
-}
-printf("\nEnter the request matrix:");
-
-
-for(i=0;i<np;i++)
-for(j=0;j<nr;j++)
-scanf("%d",&request[i][j]);
-
-
-printf("\nEnter the allocation matrix:");
-for(i=0;i<np;i++)
-for(j=0;j<nr;j++)
-scanf("%d",&alloc[i][j]);
-/*Available Resource calculation*/
-for(j=0;j<nr;j++)
-{
-avail[j]=r[j];
-for(i=0;i<np;i++)
-{
-avail[j]-=alloc[i][j];
-
-
-}
-}
-
-
-//marking processes with zero allocation
-
-
-for(i=0;i<np;i++)
-{
-int count=0;
- for(j=0;j<nr;j++)
-   {
-      if(alloc[i][j]==0)
-        count++;
-      else
-        break;
-    }
- if(count==nr)
- mark[i]=1;
-}
-// initialize W with avail
-
-
-for(j=0;j<nr; j++)
-    w[j]=avail[j];
-
-
-//mark processes with request less than or equal to W
-for(i=0;i<np; i++)
-{
-int canbeprocessed= 0;
- if(mark[i]!=1)
-{
-   for(j=0;j<nr;j++)
+    int n,m,i,j;
+    printf("Enter the number of processes and number of types of resources:\n");
+    scanf("%d %d",&n,&m);
+    int max[n][m],need[n][m],all[n][m],ava[m],flag=1,finish[n],dead[n],c=0;
+    printf("Enter the maximum number of each type of resource needed by each process:\n");
+    for(i=0;i<n;i++)
     {
-      if(request[i][j]<=w[j])
-        canbeprocessed=1;
-      else
-         {
-         canbeprocessed=0;
-         break;
-          }
-     }
-if(canbeprocessed)
-{
-mark[i]=1;
-
-
-for(j=0;j<nr;j++)
-w[j]+=alloc[i][j];
-}
-}
-}
-
-
-//checking for unmarked processes
-int deadlock=0;
-for(i=0;i<np;i++)
-if(mark[i]!=1)
-deadlock=1;
-
-
-
-
-if(deadlock)
-printf("\n Deadlock detected");
-else
-printf("\n No Deadlock possible");
-return 0;
+        for(j=0;j<m;j++)
+        {
+            scanf("%d",&max[i][j]);
+        }
+    }
+    printf("Enter the allocated number of each type of resource needed by each process:\n");
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+            scanf("%d",&all[i][j]);
+        }
+    }
+    printf("Enter the available number of each type of resource:\n");
+    for(j=0;j<m;j++)
+    {
+        scanf("%d",&ava[j]);
+    }
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+            need[i][j]=max[i][j]-all[i][j];
+        }
+    }
+    for(i=0;i<n;i++)
+    {
+        finish[i]=0;
+    }
+    while(flag)
+    {
+        flag=0;
+        for(i=0;i<n;i++)
+        {
+            c=0;
+            for(j=0;j<m;j++)
+            {
+                if(finish[i]==0 && need[i][j]<=ava[j])
+                {
+                    c++;
+                    if(c==m)
+                    {
+                        for(j=0;j<m;j++)
+                        {
+                            ava[j]+=all[i][j];
+                            finish[i]=1;
+                            flag=1;
+                        }
+                        if(finish[i]==1)
+                        {
+                            i=n;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    j=0;
+    flag=0;
+    for(i=0;i<n;i++)
+    {
+        if(finish[i]==0)
+        {
+            dead[j]=i;
+            j++;
+            flag=1;
+        }
+    }
+    if(flag==1)
+    {
+        printf("Deadlock has occured:\n");
+        printf("The deadlock processes are:\n");
+        for(i=0;i<n;i++)
+        {
+            printf("P%d ",dead[i]);
+        }
+    }
+    else
+    printf("No deadlock has occured!\n");
 }
