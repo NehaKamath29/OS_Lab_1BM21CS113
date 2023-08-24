@@ -34,6 +34,7 @@ void main()
             }
         }
     }
+    printf("****First fit memory allocation****\n");
     printf("ProcessId\tProcessSize\tBlock_Size_allocated\n");
     for(i=0;i<n;i++)
     {

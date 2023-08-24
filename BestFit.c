@@ -17,7 +17,8 @@ void main()
         scanf("%d",&blockSize[j]);
     }
 
-    //Since this is best fit, the smallest partition which is adequate is allocated to the processes. So sort the blockSizes.
+    /*Since this is best fit, the smallest partition which is adequate is allocated to the processes. So we can sort the blockSizes
+    in ascending order. */ 
     for(i=0;i<m-1;i++)
     {
         for(j=0;j<m-i-1;j++)
@@ -42,6 +43,7 @@ void main()
             }
         }
     }
+    printf("****Best fit memory allocation****\n");
     printf("ProcessID\tProcess_Size\tBlock_size_allocated\n");
     for(i=0;i<n;i++)
     {
