@@ -17,16 +17,13 @@ void main()
     scanf("%d",&curr);
     //direction considered- towards larger values first
     max=arr[0];
+    min=arr[0];
     for(i=1;i<n;i++)
     {
         if(arr[i]>max)
         {
             max=arr[i];
         }
-    }
-    min=arr[0];
-    for(i=1;i<n;i++)
-    {
         if(arr[i]<min)
         {
             min=arr[i];
