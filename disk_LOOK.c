@@ -32,3 +32,4 @@ void main()
     total=(max-curr)+(max-min);
     printf("Total number of movements:%d\n",total);
 }
+

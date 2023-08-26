@@ -30,16 +30,6 @@ void main()
             min=arr[i];
         }
     }
-    printf("Max:%d\n",max);
-    printf("Min:%d\n",min);
-    /*min=arr[0];
-    for(i=1;i<n;i++)
-    {
-        if(arr[i]<min)
-        {
-            min=arr[i];
-        }
-    }*/
     sec_max=INT_MIN;
     for(i=0;i<n;i++)
     {

@@ -34,7 +34,7 @@ void sortDesc(int arr[], int s,int e)
 }
 void main()
 {
-    int tr,n,total=0,curr,dir,min,max,i,j,k,m,temp_curr;
+    int tr,n,total=0,curr,dir,min,max,i,j,k;
     printf("Enter the total no of tracks in the disk:\n");
     scanf("%d",&tr);
     printf("Enter the number of requests in the request queue:\n");
@@ -47,7 +47,7 @@ void main()
     }
     printf("Enter the current head positon of the disk arm:\n");
     scanf("%d",&curr);
-    temp_curr=curr;
+    
     printf("Enter head movement direction(1 for High and 0 for Low):\n");
     scanf("%d",&dir);
     switch(dir)
@@ -66,7 +66,8 @@ void main()
             seek[i]=arr[i];
         }
         seek[n]=curr;
-        sortDesc(seek,0,n+1);
+        printf("Seek sequence:\n");
+        sortDesc(seek,0,n+1); //sort in descending order
         for(i=0;i<=n;i++)
         {
             if(seek[i]==curr)
@@ -99,5 +100,4 @@ void main()
         default:
         printf("Invalid choice:\n");
     }
-    
 }
