@@ -30,6 +30,6 @@ void main()
         }
     }
     total=(max-curr)+(max-min);
-    printf("Total number of movements:%d\n",total);
+    printf("Total number of movements using LOOK scheduling are:%d\n",total);
 }
 

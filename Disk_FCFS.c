@@ -17,9 +17,8 @@ void main()
     scanf("%d",&curr);
     for(int i=0;i<n;i++)
     {
-        printf("The head moves from track %d to %d with seek time %d units\n",curr,arr[i], abs(arr[i]-curr));
         total+=abs(arr[i]-curr);
         curr=arr[i];
     }
-    printf("The total head movements are:%d\n",total);
+    printf("The total head movements are using FCFS scheduling:%d\n",total);
 }

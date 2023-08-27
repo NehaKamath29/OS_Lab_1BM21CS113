@@ -35,7 +35,7 @@ void main()
             }
         }
         total=(tr-1-curr)+(tr-1-0)+(max-0);
-        printf("The total head movements are:%d\n",total);
+        printf("The total head movements using C-SCAN scheduling are:%d\n",total);
         break;
 
         case 0:
@@ -49,9 +49,8 @@ void main()
                 min=arr[i];
             }
         }
-        printf("Min:%d\n",min);
         total=(curr-0)+(tr-1-0)+(tr-1-min);
-        printf("The total head movements are:%d\n",total);
+        printf("The total head movements using C-SCAN scheduling are:%d\n",total);
         break;
         
         default:

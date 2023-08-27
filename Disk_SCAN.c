@@ -81,11 +81,11 @@ void main()
         }
         printf("\n");
         total=(tr-1-curr)+(tr-1-min);
-        printf("Total head movements:%d\n",total);
+        printf("Total head movements using SCAN scheduling are:%d\n",total);
         break;
 
         case 0:
-        ////disk fulfills all the lower requests first, so the head reaches the lower end of disk and then changes direction.
+        //disk fulfills all the lower requests first, so the head reaches the lower end of disk and then changes direction.
         //That is why, we need to find the max request track.
         max=arr[0];
         for(i=1;i<n;i++)

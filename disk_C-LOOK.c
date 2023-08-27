@@ -41,5 +41,5 @@ void main()
     printf("sec_max:%d\n",sec_max);
     total=(max-curr)+(max-min)+(sec_max-min);
     
-    printf("Total number of movements:%d\n",total);
+    printf("Total number of movements using C-LOOK scheduling are:%d\n",total);
 }

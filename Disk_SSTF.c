@@ -40,5 +40,5 @@ void main()
         printf("%d ",seek[i]);
     }
     printf("\n");
-    printf("Total number of movements:%d\n",total);
+    printf("Total number of movements using SSTF scheduling are:%d\n",total);
 }

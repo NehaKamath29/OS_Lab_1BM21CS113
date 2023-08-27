@@ -15,10 +15,10 @@ int isHit(int fr[], int pg, int m)
 void main()
 {
     int n,m,k=0,pagefault=0;
-    printf("Enter the length of refernce sequence:\n");
+    printf("Enter the length of reference sequence:\n");
     scanf("%d",&n);
     int ref[n];
-    printf("Enter the page refernce sequence:\n");
+    printf("Enter the page reference sequence:\n");
     for(int i=0;i<n;i++)
     {
         scanf("%d",&ref[i]);
