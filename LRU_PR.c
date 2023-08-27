@@ -14,7 +14,7 @@ int isHit(int fr[], int pg, int m)
 }
 void main()
 {
-    int i,n,m,k,j,pagefault=0,min=999,x,y;
+    int i,n,m,k,j,pagefault=0,min=999,x,y,count=0,u=0;
     printf("Enter the length of reference sequence:\n");
     scanf("%d",&n);
     int ref[n];
@@ -30,13 +30,27 @@ void main()
     {
         fr[i]=-1;
     }
-    for(y=0;y<m;y++)
+    y=0;
+    u=0;
+    while(count<m)
     {
-        fr[y]=ref[y];
-        pagefault++;
-        printf("%d:Page Fault\n",ref[y]);
+        if(isHit(fr,ref[u],m)==0)
+        {
+            fr[y]=ref[u];
+            printf("%d:Page Fault\n",ref[u]);
+            y++;
+            u++;
+            pagefault++;
+            count++;
+            
+        }
+        else
+        {
+            printf("%d:No page fault\n",ref[u]);
+            u++;
+        }
     }
-    for(i=y;i<n;i++)
+    for(i=u;i<n;i++)
     {
         if(isHit(fr,ref[i],m)==0)
         {
