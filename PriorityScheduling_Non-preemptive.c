@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 void main()
 {
    int n,pid[10],bt[10],at[10],pr[10],swap,tat[10],wt[10],comp=0,min,j,count=0,k;
@@ -28,7 +26,7 @@ void main()
       scanf("%d", &pr[i]);
    }
    
-   // sorting based on priority
+   // sorting based on priority, higher number means higher priority, so sorting in descending order
    for(int i=0;i<n-1;i++)
    {
       for(int j=0;j<n-i-1;j++)
