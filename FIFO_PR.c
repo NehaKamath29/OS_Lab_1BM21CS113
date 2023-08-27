@@ -37,7 +37,7 @@ void main()
         if(isHit(fr,ref[i],m)==0)
         {
             fr[k]=ref[i];
-            k=(k+1)%m;
+            k=(k+1)%m; //since this is first come first serve. 
             pagefault++;
             printf("%d:Page Fault\n",ref[i]);
         }
