@@ -55,9 +55,9 @@ void main()
          j=i;
       }
    }
-   tat[j]=at[j]+bt[j];
+   comp+=at[j]+bt[j];
+   tat[j]=comp-at[j];
    wt[j]=tat[j]-bt[j];
-   comp+=tat[j];
    count++;
    k=0;
    while(count!=n)
