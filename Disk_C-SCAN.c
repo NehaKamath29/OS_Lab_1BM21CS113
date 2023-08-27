@@ -19,7 +19,7 @@ void main()
     printf("Enter head movement direction(1 for High and 0 for Low):\n");
     scanf("%d",&dir);
     switch(dir)
-    {
+    { 
         case 1:
         //head first moves to the higher end of disk while the disk fulfills all the higher requests, changes direction to
         //reach the lower end when th disk does not fulill any lower request. After reaching the lower end, the head again
@@ -34,7 +34,6 @@ void main()
                 max=arr[i];
             }
         }
-        printf("Max:%d\n",max);
         total=(tr-1-curr)+(tr-1-0)+(max-0);
         printf("The total head movements are:%d\n",total);
         break;
