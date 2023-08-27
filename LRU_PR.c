@@ -49,13 +49,14 @@ void main()
                         break;
                     }
                 }
-                if(k<min)
+                if(k<min) /*agar pg no ki index min se kam ho, iska matlab ye hai ki uski demand sabse pehele hua tha, 
+                sirf tabhi min ko update karna*/
                 {
                     x=j;
                     min=k;
                 }
             }
-            min=999;
+            min=999; //reset min for other iterations
             fr[x]=ref[i];
             pagefault++;
             printf("%d:Page fault\n",ref[i]);

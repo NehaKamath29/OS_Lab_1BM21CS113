@@ -31,7 +31,7 @@ void main()
    {
       for(int j=0;j<n-i-1;j++)
       {
-         if(pr[j]<pr[j+1])
+         if(pr[j]<=pr[j+1])
          {
             swap = pr[j];
             pr[j] = pr[j+1];
@@ -57,6 +57,7 @@ void main()
    }
    //to find which process has arrived first because we have sorted the array based on priority
    min=at[0];
+   j=0;
    for(int i=1;i<n;i++)
    {
       if(at[i]<min)
@@ -64,11 +65,28 @@ void main()
          min=at[i];
          j=i;
       }
+      else if(at[i]==min) //if arrival time is the same, check which has higher priority
+      {
+         if(pr[i]>pr[j])
+         {
+            j=i;
+         }
+         else if(pr[i]==pr[j]) //if priorities are also same, check whcih one has lesser burst time.
+         {
+            if(bt[i]<bt[j])
+            {
+               j=i;
+            }
+         }
+      }
    }
+   printf("Min:%d\n",min);
+   printf("j:%d\n",j);
    //j is the index/process which has arrived first, so compute tat for that first
-   tat[j]=at[j]+bt[j];
+   comp+=at[j]+bt[j];
+   tat[j]=comp-at[j];
    wt[j]=tat[j]-bt[j];
-   comp+=tat[j];
+   
    count++; //keeps track of number of processes computed for tat
    k=0;
    while(count!=n)

@@ -40,7 +40,7 @@ void main()
             {
                 for(k=i+1;k<n;k++)
                 {
-                    if(fr[j]==ref[k])
+                    if(fr[j]==ref[k])//as soon as match happens, break.
                     {
                         flag=1;
                         break;
@@ -54,22 +54,18 @@ void main()
                 }
                 if(flag==-1)//if there is no demand, directly replaced, no need to check other pages in the frames.
                 break;
-                else if(flag==1 && k>max)//we need to find that page jiski demand sabse baad mein ho.
+                else if(flag==1 && k>max)/*we need to find that page jiski demand sabse baad mein ho, isiliye, agar pg no ki demand
+                                          basically uski index max se zyada ho, tabhi update karna*/
                 {
                     max=k;
                     x=j;
                 }
             }
-            max=-1;
+            max=-1; //reset max for other iterations
             if(flag!=-1)//agar demand nahi hai, toh already replace ho chuka hoga.
             {
                 fr[x]=ref[i];
             }
-            for(j=0;j<m;j++)
-            {
-                printf("%d ",fr[j]);
-            }
-            printf("\n");
             pagefault++;
             printf("%d:Page fault\n",ref[i]);
         }
